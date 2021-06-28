@@ -5,8 +5,40 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(email: 'guinterglenn33@gmail.com', password: '123455')
-User.create(email: 'santi@gmail.com', password: '123455')
-User.create(email: 'martin@gmail.com', password: '123455')
-Vehicle.create(category: 'moto', user: User.first)
-Booking.create(user: User.last, vehicle: Vehicle.first)
+require 'faker'
+
+User.destroy_all
+Vehicle.destroy_all
+Booking.destroy_all
+
+
+puts "Creating users"
+10.times do |index|
+  user = User.new(
+    email: Faker::Internet.email,
+    password: "123456"
+    )
+  user.save!
+end
+
+puts "Creating vehicle"
+CATEGORIES = ["Bicyle", "E-bike", "Scooter"]
+10.times do |index|
+  vehicle = Vehicle.new(
+    category: CATEGORIES.sample,
+    user: User.all.sample
+    )
+  vehicle.save!
+end
+
+puts "Creating booking"
+10.times do |index|
+  booking = Booking.create!(
+    user: User.all.sample,
+    vehicle: Vehicle.all.sample
+    )
+end
+
+
+
+
