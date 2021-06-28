@@ -22,7 +22,7 @@ puts "Creating users"
 end
 
 puts "Creating vehicle"
-CATEGORIES = ["Bicyle", "E-bike", "Scooter"]
+CATEGORIES = ["Bicycle", "E-bike", "Scooter"]
 10.times do |index|
   vehicle = Vehicle.new(
     category: CATEGORIES.sample,

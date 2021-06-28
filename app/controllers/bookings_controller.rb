@@ -3,11 +3,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @vehicle = Vehicle.find(params[:vehicle_id])
     @booking.vehicle = @vehicle
+    @booking.user = current_user
       if @booking.save
-        @booking.save
-        redirect_to vehicle_bookings_path(@vehicle)
+       redirect_to vehicle_bookings_path(@vehicle)
       else
-        render :new
+       redirect_to vehicle_path(@vehicle)
       end
   end
 
