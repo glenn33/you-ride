@@ -1,9 +1,21 @@
-<div class="container">
- <h1>Your bookings</h1>
+<div class="container mt-3">
+ <h1>My bookings</h1>
 
- <ul>
- <% @bookings.each do |booking| %>
-  <li><%= booking.date %> <%= booking.vehicle.category %></li>
+<% @bookings.each do |booking| %>
+  <%= link_to vehicle_path(booking.vehicle) do %>
+   <div class="card-product m-3">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= booking.vehicle.category %> in <%= booking.vehicle.location %></h2>
+      <h3>Owner: <%= booking.vehicle.user.full_name %> (<%= booking.vehicle.user.email %>)</h3>
+      <div>
+       <p><%= booking.vehicle.price %></p>
+       <p><%= booking.date %></p>
+      </div>
+    </div>
+  </div>
  <% end %>
- </ul>
+<% end %>
+
+
 </div>
