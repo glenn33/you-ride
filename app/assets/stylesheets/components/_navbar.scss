@@ -1,6 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  h1 {
+   font-size: 22px;
+   font-family: 'Akaya Kanadaka', cursive;
+   font-style: italic;
+   margin-left: -10px;
+   color: rgb(188, 77, 63);
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
