@@ -1,10 +1,7 @@
-<div class="header d-flex flex-row justify-content-between p-2">
-  <h5>you Ride!</h5>
-  <%= link_to "Post a vehicle to rent!", new_vehicle_path, class:"btn btn-primary" %>
-</div>
+
+<div class="container mt-3">
 <h1>All our vehicles</h1>
 <br>
-<div class="container">
  <ul>
    <% @vehicles.each do |vehicle| %>
    <div class="card d-flex justify-content-center display-inline m-3 p-3" style="width: 18rem;">

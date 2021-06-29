@@ -1,20 +1,25 @@
 class VehiclesController < ApplicationController
  before_action :find, only: [:show, :edit, :update, :destroy]
  before_action :authenticate_user!, only: :new
+
  def index
-   @vehicles = Vehicle.all
+   @vehicles = policy_scope(Vehicle)
   end
 
   def show
    @booking = Booking.new
+   authorize @vehicle
   end
 
   def new
    @vehicle = Vehicle.new
+   authorize @vehicle
   end
 
   def create
    @vehicle = Vehicle.new(vehicle_params)
+   authorize @vehicle
+   @vehicle.user = current_user
    if @vehicle.save
     redirect_to vehicle_path(@vehicle)
    else

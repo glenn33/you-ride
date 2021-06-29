@@ -1,11 +1,21 @@
-<h1><%= @vehicle.category %></h1>
-<%= link_to "Return to all vehicles", vehicles_path, class:"btn btn-info" %>
-<%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-success" %>
-<br>
-<br>
-<%= simple_form_for [@vehicle, @booking] do |f| %>
- <%= f.input :date  %>
- <%= f.submit %>
-<% end %>
-<br>
-<%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure to delete this vehicle?"} %>
+
+<div class="container mt-3">
+ <h1><%= @vehicle.category %></h1>
+ <%= link_to "Return to all vehicles", vehicles_path, class:"btn btn-info" %>
+ <% if  policy(@vehicle).delete? %>
+  <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-success" %>
+ <% end %>
+  
+ <br>
+ <br>
+ <% unless policy(@vehicle).delete? %>
+  <%= simple_form_for [@vehicle, @booking] do |f| %>
+   <%= f.input :date  %>
+   <%= f.submit %>
+  <% end %>
+ <% end %>
+ <br>
+ <% if  policy(@vehicle).delete? %>
+  <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure to delete this vehicle?"} %>
+ <% end %>
+</div>
