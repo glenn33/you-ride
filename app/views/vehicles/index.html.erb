@@ -2,12 +2,15 @@
 <div class="container mt-3">
 <h1>All our vehicles</h1>
 <br>
- <ul>
+<div class="container">
+ <div class="row">
    <% @vehicles.each do |vehicle| %>
-   <div class="card d-flex justify-content-center display-inline m-3 p-3" style="width: 18rem;">
-     <h3 class="card-title"><%= vehicle.category %></h3>
-     <%= link_to "See details", vehicle_path(vehicle), class:"card-link btn btn-light" %>
-   </div>
+    <div class="col-6">
+    <%= link_to vehicle_path(vehicle) do %>
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg')">
+       <%= vehicle.category %>
+     </div>
+  <% end %>
+    </div>
    <% end %>
- </ul>
 </div>
