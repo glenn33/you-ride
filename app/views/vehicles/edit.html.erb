@@ -1,6 +1,7 @@
-<h1>Edit your vehicle: <%= @vehicle.category %></h1>
-<%= simple_form_for @vehicle do |f| %>
- <%= f.input :category, label: "Edit your vehicle category" %>
- <%= f.submit %>
-<% end %>
-
+<div class="container mt-3">
+ <h1>Edit your vehicle: <%= @vehicle.category %></h1>
+ <%= simple_form_for @vehicle do |f| %>
+  <%= f.input :category, label: "Edit your vehicle category" %>
+  <%= f.submit %>
+ <% end %>
+</div>

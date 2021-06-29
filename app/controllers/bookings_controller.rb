@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
-  def create
+ before_action :authenticate_user!, only: :create
+ 
+ def create
     @booking = Booking.new(booking_params)
     @vehicle = Vehicle.find(params[:vehicle_id])
     @booking.vehicle = @vehicle
