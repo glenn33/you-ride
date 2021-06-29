@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
  before_action :authenticate_user!, only: :create
- 
+ before_action :skip_authorization, only: :rentals
+
  def create
     @booking = Booking.new(booking_params)
     authorize @booking
@@ -23,6 +24,12 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(current_user.bookings)
+  end
+
+  def rentals
+   @rentals = current_user.vehicles.map do |vehicle|
+    vehicle.bookings
+   end
   end
 
   private

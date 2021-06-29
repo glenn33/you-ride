@@ -1,0 +1,9 @@
+
+ <ul>
+ <% @rentals.each do |vehicle_rent| %>
+  <% vehicle_rent.each do |rent| %>
+  <li><%= rent.user.email %></li>
+ <% end %>
+ <% end %>
+ </ul>
+</div>

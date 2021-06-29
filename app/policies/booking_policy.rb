@@ -8,4 +8,8 @@ class BookingPolicy < ApplicationPolicy
   def create?
    return true
   end
+
+  def rentals?
+   return true
+  end
 end
