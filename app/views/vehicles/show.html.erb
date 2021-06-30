@@ -1,8 +1,17 @@
+<div class="banner pt-5 h-75" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @vehicle.image_url %>');">
+  <div class="container d-flex flex-column mb-5">
+    <h1 class="mb-5"><strong><%=  @vehicle.category %></strong>!</h1>
+    <div>
+   
+
+    </div>
+  </div>
+</div>
+
 
 <div class="container mt-3">
- <h1><%= @vehicle.category %></h1>
  <%= link_to "Return to all vehicles", vehicles_path, class:"btn btn-info" %>
- <% if  policy(@vehicle).destroy? %>
+ <% if policy(@vehicle).destroy? %>
   <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-success" %>
  <% end %>
   
@@ -15,7 +24,12 @@
   <% end %>
  <% end %>
  <br>
- <% if  policy(@vehicle).destroy? %>
+ <div id="map" class="col-8 mt-3"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+ <% if policy(@vehicle).destroy? %>
   <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure to destroy this vehicle?"} %>
  <% end %>
 </div>

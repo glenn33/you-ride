@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.vehicle = vehicle
     @booking.user = current_user
       if @booking.save
-       redirect_to my_bookings_path
+       redirect_to bookings_path
       else
        redirect_to vehicle_path(vehicle)
       end
@@ -17,9 +17,9 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    vehicle = @booking.vehicle
+    authorize @booking
     @booking.destroy
-    redirect_to vehicle_path(vehicle)
+    redirect_to vehicles_path
   end
 
   def index

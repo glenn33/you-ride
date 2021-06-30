@@ -23,10 +23,15 @@ end
 
 puts "Creating vehicle"
 CATEGORIES = ["Bicycle", "E-bike", "Scooter"]
+cities = ["Braunschweig", "Roma", "Madrid", "Berlin", "Amsterdam", "London"]
+
 10.times do |index|
   vehicle = Vehicle.new(
     category: CATEGORIES.sample,
-    user: User.all.sample
+    user: User.all.sample,
+    price: rand(8..15),
+    image_url: "https://loremflickr.com/300/300",
+    location: cities.sample
     )
   vehicle.save!
 end
