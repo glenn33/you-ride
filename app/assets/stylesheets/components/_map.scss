@@ -1,8 +1,13 @@
-#map {
+.map-index {
  width: 50vw;
  height: 100vh;
  border-radius: 10px;
  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
  position: sticky !important;
  top: 0;
+}
+.show-map {
+ height: 100vh;
+ border-radius: 10px;
+ box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
 }
