@@ -39,3 +39,15 @@
  background: linear-gradient(#147EFF, #0F67DA);
  color: white;
 }
+.btn-je {
+ font-size: 10px;
+ color: white;
+ padding: 4px 8px;
+ border-radius: 4px;
+ background: #fc513e;
+ transition: background 0.3s ease;
+ &:hover {
+  background: #fa240c;
+  color: white;
+ }
+}

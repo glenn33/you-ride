@@ -4,13 +4,17 @@
 <br>
 <div class="container">
  <div class="row">
-   <% @vehicles.each do |vehicle| %>
-    <div class="col-6">
-    <%= link_to vehicle_path(vehicle) do %>
+  <div class="col-4">
+    <% @vehicles.each do |vehicle| %>
+     <%= link_to vehicle_path(vehicle) do %>
      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg')">
        <%= vehicle.category %>
-     </div>
-  <% end %>
-    </div>
+      </div>
+    <% end %>
    <% end %>
+   </div>
+    <div class="col-8 mt-3">
+      <%= image_tag ('https://upload.wikimedia.org/wikipedia/commons/d/d9/Stavanger_city_map_cut.jpg'), id:"map-img" %>
+    </div>
+  </div>
 </div>
