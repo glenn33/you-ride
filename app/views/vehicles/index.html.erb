@@ -4,13 +4,18 @@
 <br>
 <div class="container">
  <div class="row">
-   <% @vehicles.each do |vehicle| %>
-    <div class="col-6">
-    <%= link_to vehicle_path(vehicle) do %>
-     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg')">
+  <div class="col-4">
+    <% @vehicles.each do |vehicle| %>
+     <%= link_to vehicle_path(vehicle) do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= vehicle.image_url %>')">
        <%= vehicle.category %>
-     </div>
-  <% end %>
-    </div>
+      </div>
+    <% end %>
    <% end %>
+   </div>
+   <div id="map" class="col-8 mt-3"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 </div>

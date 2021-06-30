@@ -4,6 +4,13 @@ class VehiclesController < ApplicationController
 
  def index
    @vehicles = policy_scope(Vehicle)
+    @markers = @vehicles.geocoded.map do |vehicle|
+     {
+       lat: vehicle.latitude,
+       lng: vehicle.longitude,
+       info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle })
+     }
+   end
   end
 
   def show
@@ -28,16 +35,19 @@ class VehiclesController < ApplicationController
   end
 
   def update
+   authorize @vehicle
    @vehicle.update(vehicle_params)
    redirect_to vehicle_path(@vehicle)
   end
 
   def destroy
+   authorize @vehicle
    @vehicle.destroy
    redirect_to vehicles_path
   end
 
   def edit
+   authorize @vehicle
   end
 
   private

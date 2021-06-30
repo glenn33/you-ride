@@ -4,7 +4,7 @@
 <% @rentals.each do |rentals| %>
 <% rentals.each do |rental| %>
    <%= link_to vehicle_path(rental.vehicle) do %>
-    <div class="card-product m-3 w-75">
+    <div class="card-product m-3">
      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
      <div class="card-product-infos">
        <h2><%= rental.vehicle.category %> in <%= rental.vehicle.location %></h2>
