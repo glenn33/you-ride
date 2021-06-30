@@ -8,9 +8,10 @@
     <div class="card-product-infos">
       <h2><%= booking.vehicle.category %> in <%= booking.vehicle.location %></h2>
       <h3>Owner: <%= booking.vehicle.user.full_name %> (<%= booking.vehicle.user.email %>)</h3>
-      <div>
-       <p><%= booking.vehicle.price %></p>
+      <div class="d-flex justigy-content-between">
+       <p>$<%= booking.vehicle.price %></p>
        <p><%= booking.date %></p>
+       <%= link_to "Delete this booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-je ml-5" %>
       </div>
     </div>
   </div>
