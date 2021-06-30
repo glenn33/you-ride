@@ -16,6 +16,7 @@ class VehiclesController < ApplicationController
   def show
    @booking = Booking.new
    authorize @vehicle
+   @marker = [{lat:@vehicle.geocode[0], lng:@vehicle.geocode[1] }]
   end
 
   def new
