@@ -2,16 +2,20 @@ class VehiclesController < ApplicationController
  before_action :find, only: [:show, :edit, :update, :destroy]
  before_action :authenticate_user!, only: :new
 
- def index
-   @vehicles = policy_scope(Vehicle)
-    @markers = @vehicles.geocoded.map do |vehicle|
-     {
-       lat: vehicle.latitude,
-       lng: vehicle.longitude,
-       info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle })
-     }
-   end
+def index
+  @vehicles = policy_scope(Vehicle)
+  if params[:query].present?
+    @vehicles = Vehicle.near(params[:query], 10)
+    @vehicles == [] ? @vehicles = Vehicle.all : @vehicles = Vehicle.where(category: params[:category], id: @vehicles.collect(&:id))
   end
+  @markers = @vehicles.geocoded.map do |vehicle|
+    {
+      lat: vehicle.latitude,
+      lng: vehicle.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle })
+    }
+    end
+end
 
   def show
    @booking = Booking.new

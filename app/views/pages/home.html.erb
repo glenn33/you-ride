@@ -1,14 +1,25 @@
-<div class="banner pt-5 h-75" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.wallpapersafari.com/33/45/x7E5WA.jpg);">
+<div class="banner pt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.wallpapersafari.com/33/45/x7E5WA.jpg);">
   <div class="container d-flex flex-column mb-5">
     <h1 class="mb-5"><strong>Choose your next ride</strong>!</h1>
     <div>
-   
-      <%= link_to "See all vehicles around you!", vehicles_path, class:"btn btn-info" %>
+
+      <%= form_tag vehicles_path, method: :get, class:"d-flex justify-content-between" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", id:"vehicle_location", placeholder: "Location", style:"border-radius: 8px; "%>
+        <%= select_tag "category", raw("<option>Bicycle</option><option>E-bike</option><option>Scooter</option>"), class: "form-control", style:"border-radius: 8px; width: 250px;"%>
+        
+        <%= submit_tag "Search", class: "btn btn-ghost", style:"border-radius: 8px; padding: 0 15px;" %>
+       <% end %>
+
     </div>
   </div>
 </div>
 <div class="container mt-3">
 
- <br>
+  <% @vehicles.each do |vehicle| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= vehicle.image_url %>')">
+       <%= vehicle.category %>
+      </div>
+
+   <% end %>
 
 </div>

@@ -4,16 +4,24 @@
 <br>
 <div class="container">
  <div class="row">
-   <div class="col-4">
+   <div class="col-5">
     <% @vehicles.each do |vehicle| %>
-     <%= link_to vehicle_path(vehicle) do %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= vehicle.image_url %>')">
-       <%= vehicle.category %>
-      </div>
+      <%= link_to vehicle_path(vehicle) do %>
+        <div class="card-trip m-3">
+          <img src=<%= vehicle.image_url %> />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= vehicle.category %></h2>
+              <p style="width: 165px;"><%= vehicle.title %></p>
+            </div>
+            <h2 class="card-trip-pricing" style="width: 10px;">$ <%= vehicle.price %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      <% end %>
     <% end %>
-   <% end %>
-   </div>
-   <div id="map" class="map-index col-8 mt-3"
+ </div>
+   <div id="map" class="map-index col-7 mt-3"
      style="width: 600vw; height: 100vh;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
