@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'geocoder'
 # Use Active Storage variant
 gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
+gem 'cloudinary', '~> 1.16.0'
 
 # gem 'image_processing', '~> 1.2'
 
