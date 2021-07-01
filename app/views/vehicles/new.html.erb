@@ -1,11 +1,11 @@
 <div class="container mt-3">
  <h1>Create a new vehicle!</h1>
  <%= simple_form_for @vehicle do |f| %>
-  <%= f.input :category %>
+  <%= f.input :category, :collection => ["Bicycle", "E-bike", "Scooter"], %>
   <%= f.input :title %>
   <%= f.input :location %>
   <%= f.input :price %>
-  <%= f.input :image_url, label:"Vehicle image", placeholder:"https://your-image.com" %>
+  <%= f.input :image_url, as: :file %>
   <%= f.input :description %>
   <%= f.submit %>
  <% end %>

@@ -2,8 +2,10 @@
   <div class="container d-flex flex-column mb-5">
     <h1 class="mb-3"><strong>Choose your next ride</strong>!</h1>
     <h4 class="mb-3" style="color:rgb(246, 129, 114); font-family:Nunito";>Quick and easy online mobility rental platform!</h4>
-
     <div>
+      <%= form_tag vehicles_path, method: :get, class:"d-flex justify-content-between w-75" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", id:"vehicle_location", placeholder: "Location", style:"border-radius: 2px; "%>
+        <%= select_tag "category", raw("<option>Bicycle</option><option>E-bike</option><option>Scooter</option>"), class: "form-control", style:"border-radius: 2px; width: 350px;"%>
       <%= form_tag vehicles_path, method: :get, class:"d-flex justify-content-between w-75" do %>
         <%= text_field_tag :query, params[:query], class: "form-control", id:"vehicle_location", placeholder: "Location", style:"border-radius: 2px; "%>
         <%= select_tag "category", raw("<option>Bicycle</option><option>E-bike</option><option>Scooter</option>"), class: "form-control", style:"border-radius: 2px; width: 350px;"%>

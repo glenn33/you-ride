@@ -8,7 +8,7 @@
     <% @vehicles.each do |vehicle| %>
       <%= link_to vehicle_path(vehicle) do %>
         <div class="card-trip m-3">
-          <img src=<%= vehicle.image_url %> />
+          <%= cl_image_tag vehicle.image_url.key %>
           <div class="card-trip-infos">
             <div>
               <h2><%= vehicle.category %></h2>
