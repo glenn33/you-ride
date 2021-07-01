@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
  before_action :authenticate_user!, only: :create
- before_action :skip_authorization, only: :rentals
+ before_action :skip_authorization, only: [:rentals, :destroy]
 
  def create
     @booking = Booking.new(booking_params)
