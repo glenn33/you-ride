@@ -23,10 +23,14 @@ require("channels")
 // ----------------------------------------------------
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initFlatpickr } from "../plugins/init_flatpickr";
+
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  initFlatpickr();
 })
 // External imports
 import "bootstrap";

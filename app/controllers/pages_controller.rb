@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-   @vehicles = Vehicle.new
+   @vehicles = Vehicle.all
   end
 end

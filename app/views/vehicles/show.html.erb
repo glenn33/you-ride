@@ -15,7 +15,8 @@
  <% unless policy(@vehicle).destroy? %>
   <div class="d-flex position-relative" style="">
    <%= simple_form_for [@vehicle, @booking] do |f| %>
-    <%= f.input :date  %>
+    <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.submit %>
    <% end %>
    <div id="map" class="show-map text-center col-8 ml-5 mt-3"
