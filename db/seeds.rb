@@ -16,8 +16,3 @@ puts "Creating users"
 User.create(email: "santi@gmail.com", password: "123456", full_name: "santi")
 User.create(email: "martin@gmail.com", password: "123456", full_name: "martin")
 User.create(email: "glenn@gmail.com", password: "123456", full_name: "glenn")
-
-
-
-
-
