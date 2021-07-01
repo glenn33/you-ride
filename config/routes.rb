@@ -8,3 +8,7 @@ Rails.application.routes.draw do
   get '/rentals', to: 'bookings#rentals'
   resources :bookings, only: [:index, :destroy]
 end
+
+# Pseudo coding
+# get "pages/show", to: "pages#show"
+# patch "pages/show/:id", to: "pages#update"
