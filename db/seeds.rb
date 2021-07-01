@@ -13,13 +13,9 @@ Booking.destroy_all
 
 
 puts "Creating users"
-10.times do |index|
-  user = User.new(
-    email: Faker::Internet.email,
-    password: "123456"
-    )
-  user.save!
-end
+User.create(email: "santi@gmail.com", password: "123456")
+User.create(email: "martin@gmail.com", password: "123456")
+User.create(email: "glenn@gmail.com", password: "123456")
 
 puts "Creating vehicle"
 CATEGORIES = ["Bicycle", "E-bike", "Scooter"]
