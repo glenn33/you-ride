@@ -1,42 +1,41 @@
-<div class="banner pt-5 h-75" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @vehicle.image_url %>');">
+<div class="banner pt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @vehicle.image_url.key, crop: :fill %>');">
   <div class="container d-flex flex-column mb-5">
-    <%= link_to "All vehicles", vehicles_path, class:"btn btn-flat" %>
+    <% unless policy(@vehicle).destroy? %>
+      <%= link_to "All vehicles", vehicles_path, class:"btn btn-flat" %>
+    <% end %>  
     <h1 class="mb-5"><strong><%=  @vehicle.category %></strong>!</h1>
     <div>
      <h3 class="mb-4"><strong><%= @vehicle.title %></strong></h3>
-     <h3 class="mb-3">Price: $<%= @vehicle.price %></h3>
-     <p><%= @vehicle.description %></p>
       </div>
   </div>
 </div>
 
-
-<div class="container mt-3">
- <% unless policy(@vehicle).destroy? %>
-  <div class="d-flex position-relative" style="">
-   <%= simple_form_for [@vehicle, @booking] do |f| %>
-    <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.submit %>
-   <% end %>
-   <div id="map" class="show-map text-center col-8 ml-5 mt-3"
-    style="width: 100%; height: 600px; top: -300px;"
-    data-markers="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-   </div>
+<div class="container mt-4">
+  <div class="d-flex justify-content-around mr-3">
+    <div>
+      <div id="map" class="show-map mr-1 "
+        style="width: 550px; height: 600px;"
+        data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+    <div style="width: 350px;" class="text-center">
+     <h3 class="mb-3">Price: $<%= @vehicle.price %></h3>
+     <p class="mb-5" style="font-size: 25px;"><%= @vehicle.description %></p>
+      <% unless policy(@vehicle).destroy? %>
+        <%= simple_form_for [@vehicle, @booking] do |f| %>
+            <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.submit %>
+          <% end %>
+        <% end %> 
+      <% if policy(@vehicle).destroy? %>
+        <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-je je", id:"je" %>
+      <% end %>
+      <% if policy(@vehicle).destroy? %>
+        <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-je", style:"font-size: 18px;", data: { confirm: "Are you sure to destroy this vehicle?"} %>
+      <% end %>
+    </div>
   </div>
- <% end %>
+ 
 
- <% if policy(@vehicle).destroy? %>
-  <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-success" %>
- <% end %>
-  
- <br>
- <br>
- 
- <br>
- 
- <% if policy(@vehicle).destroy? %>
-  <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure to destroy this vehicle?"} %>
- <% end %>
 </div>

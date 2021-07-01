@@ -3,11 +3,11 @@
     <h1 class="mb-5"><strong>Choose your next ride</strong>!</h1>
     <div>
 
-      <%= form_tag vehicles_path, method: :get, class:"d-flex justify-content-between" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", id:"vehicle_location", placeholder: "Location", style:"border-radius: 8px; "%>
-        <%= select_tag "category", raw("<option>Bicycle</option><option>E-bike</option><option>Scooter</option>"), class: "form-control", style:"border-radius: 8px; width: 250px;"%>
+      <%= form_tag vehicles_path, method: :get, class:"d-flex justify-content-between w-75" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", id:"vehicle_location", placeholder: "Location", style:"border-radius: 2px; "%>
+        <%= select_tag "category", raw("<option>Bicycle</option><option>E-bike</option><option>Scooter</option>"), class: "form-control", style:"border-radius: 2px; width: 350px;"%>
         
-        <%= submit_tag "Search", class: "btn btn-ghost", style:"border-radius: 8px; padding: 0 15px;" %>
+        <%= submit_tag "Search", class: "btn btn-ghost", style:"border-radius: 2px; padding: 0 15px;" %>
        <% end %>
 
     </div>
