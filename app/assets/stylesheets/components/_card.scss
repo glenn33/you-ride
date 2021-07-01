@@ -1,53 +1,4 @@
-.card-product {
- overflow: hidden;
- height: 120px;
- background: white;
- box-shadow: 0 0 15px rgba(0,0,0,0.2);
- display: flex;
- align-items: center;
- width: 50vw;
- &:hover {
-  transition: all 0.2s ease-out;
-  box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
-  top: -4px;
-  border: 1px solid #cccccc;
-  background-color: white;
- }
-}
-a:hover {
-text-decoration: none;
-}
-
-.card-product img {
- height: 100%;
- width: 120px;
- object-fit: cover;
-}
-
-.card-product h2 {
- color: lightcoral;
- font-size: 20px;
- font-weight: bold;
- margin: 0;
-}
-
-.card-product h3 {
- color: rgb(64, 182, 255);
- margin-top: 5px;
- font-size: 15px;
-}
-
-.card-product p {
- font-size: 12px;
- line-height: 1.4;
- opacity: .7;
- margin-bottom: 0;
- margin-top: 8px;
-}
-
-.card-product .card-product-infos {
- padding: 16px;
-}
+// Card index
 .card-category {
  background-size: cover;
  background-position: center;
@@ -72,4 +23,53 @@ text-decoration: none;
 }
 a:hover {
  text-decoration: none;
+}
+
+// card bookings and rentals 
+.card img {
+ height: 141px;
+ width: 143px;
+ object-fit: cover;
+ border-radius: 6px;
+}
+.card {
+ display: block;
+ top: 0px;
+ position: relative;
+ max-width: 262px;
+ background-color: hsl(7, 45%, 92%);
+ border-radius: 4px;
+ padding: 32px 24px;
+ margin: 12px;
+ text-decoration: none;
+ z-index: 0;
+ overflow: hidden;
+ border: 1px solid #f2f8f9;
+
+ &:hover {
+   transition: all 0.2s ease-out;
+   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+   top: -4px;
+   border: 1px solid #cccccc;
+   background-color: white;
+ }
+
+ &:before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: -16px;
+   right: -16px;
+   background: #00838d;
+   height: 32px;
+   width: 32px;
+   border-radius: 32px;
+   transform: scale(2);
+   transform-origin: 50% 50%;
+   transition: transform 0.15s ease-out;
+ }
+
+ &:hover:before {
+   transform: scale(2.15);
+ }
 }

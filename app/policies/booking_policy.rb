@@ -10,7 +10,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-   record.user == user
+   return true
   end
   
   def rentals?
