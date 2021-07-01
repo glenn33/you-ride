@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'geocoder'
 # Use Active Storage variant
+gem 'flatpickr', '~> 2.3', '>= 2.3.5.0'
+
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb

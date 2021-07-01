@@ -15,7 +15,8 @@
             <p class="card-text">Owner: <%= booking.vehicle.user.full_name %> (<%= booking.vehicle.user.email %>)</p>
             <div class="d-flex justify-content-around align-items-end">
               <p class="card-text mb-0">$<%= booking.vehicle.price %></p>
-              <p class="card-text mb-0"><small class="text-muted">25-3-2019<%= booking.date %></small></p>
+              <p class="card-text mb-0"><small class="text-muted"><%= booking.date %></small></p>
+              <p class="card-text mb-0"><small class="text-muted"><%= booking.end_date %></small></p>
               <%= link_to "Delete this booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-je ml-5" %>
             </div>
           </div>
