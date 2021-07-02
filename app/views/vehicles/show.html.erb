@@ -2,6 +2,8 @@
   <div class="container d-flex flex-column mb-5">
     <% unless policy(@vehicle).destroy? %>
       <%= link_to "All vehicles", vehicles_path, class:"btn btn-flat" %>
+    <% else %>
+      <%= link_to "Your rentals", rentals_path, class:"btn btn-flat" %>
     <% end %>
     <h1 class="mb-5"><strong><%=  @vehicle.category %></strong>!</h1>
     <div>
