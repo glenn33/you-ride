@@ -1,8 +1,6 @@
 
 <div class="container mt-3">
-<h1>All our vehicles</h1>
-<br>
-<div class="container">
+  <h1>All our vehicles</h1>
   <div class="row">
     <div class="col-5 pl-0">
     <% @vehicles.each do |vehicle| %>
@@ -27,3 +25,4 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
+
