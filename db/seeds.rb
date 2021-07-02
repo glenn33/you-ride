@@ -13,6 +13,6 @@ Booking.destroy_all
 
 
 puts "Creating users"
-User.create(email: "santi@gmail.com", password: "123456", full_name: "santi")
-User.create(email: "martin@gmail.com", password: "123456", full_name: "martin")
-User.create(email: "glenn@gmail.com", password: "123456", full_name: "glenn")
+User.create(email: "santi@gmail.com", password: "123456", full_name: "santi", profile_picture: "https://ca.slack-edge.com/T02NE0241-U022TP90K0Q-a08af8898f25-72", full_name: "Santiago Altamira")
+User.create(email: "martin@gmail.com", password: "123456", full_name: "martin", profile_picture: "https://ca.slack-edge.com/T02NE0241-U02241PPHAN-7dc694ba7505-72", full_name: "Martin Karlsson")
+User.create(email: "glenn@gmail.com", password: "123456", full_name: "glenn", profile_picture: "https://ca.slack-edge.com/T02NE0241-U0220SK6J5B-34ace59e8d53-512", full_name: "Glenn Gunter")
