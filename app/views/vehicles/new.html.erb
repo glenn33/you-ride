@@ -1,7 +1,7 @@
 <div class="container mt-3">
  <h1>Create a new vehicle!</h1>
  <%= simple_form_for @vehicle do |f| %>
-  <%= f.input :category, :collection => ["Bicycle", "E-bike", "Scooter"] %>
+  <%= f.input :category, :collection => ["Bicycle", "E-bike", "Scooter", "Wheel Chair", "Skate", "Rollers"] %>
   <%= f.input :title %>
   <%= f.input :location %>
   <%= f.input :price %>
