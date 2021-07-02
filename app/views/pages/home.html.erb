@@ -1,7 +1,7 @@
 <div class="banner pt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/ddwduhayz/image/upload/v1625179936/photo-1612270237088-d1262c013709_qzfd4x.jpg);">
   <div class="container d-flex flex-column mb-5">
-    <h1 class="mb-3"><strong>Choose your next ride</strong>!</h1>
-    <h4 class="mb-3" style="color:rgb(246, 129, 114); font-family:Nunito";>Quick and easy online mobility rental platform!</h4>
+    <h1 class="mb-4"><strong>Choose your next ride</strong>!</h1>
+    <h4 class="mb-4" style="color:rgb(246, 129, 114); font-family:Nunito";>Quick and easy online mobility rental platform!</h4>
     <div>
       <%= form_tag vehicles_path, method: :get, class:"d-flex justify-content-between w-75" do %>
         <%= text_field_tag :query, params[:query], class: "form-control", id:"vehicle_location", placeholder: "Location", style:"border-radius: 2px; "%>

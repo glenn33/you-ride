@@ -5,6 +5,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-right: 10px;
+  margin-top: 17px;
 }
 
 .card-trip > img {
@@ -14,13 +16,13 @@
 }
 
 .card-trip h2 {
-  font-size: 10px;
+  font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 18px;
   opacity: .7;
   margin: 0;
 }
@@ -77,10 +79,11 @@ a:hover {
 
 // card bookings and rentals 
 .card img {
- height: 141px;
- width: 143px;
+ height: 212px;
+ width: 146px;
  object-fit: cover;
  border-radius: 6px;
+ padding-right: 0px;
 }
 .card {
  display: block;

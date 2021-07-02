@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to vehicles_path
+    redirect_to bookings_path
   end
 
   def index

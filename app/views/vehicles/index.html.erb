@@ -4,18 +4,18 @@
 <br>
 <div class="container">
  <div class="row">
-   <div class="col-5">
+   <div class="col-5 pl-0">
     <% @vehicles.each do |vehicle| %>
       <%= link_to vehicle_path(vehicle) do %>
-        <div class="card-trip m-3">
+        <div class="card-trip">
           <%= cl_image_tag vehicle.image_url.key %>
           <div class="card-trip-infos">
             <div>
               <h2><%= vehicle.category %></h2>
               <p style="width: 165px;"><%= vehicle.title %></p>
             </div>
-            <h2 class="card-trip-pricing" style="width: 10px;">$ <%= vehicle.price %></h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <p class="card-trip-pricing" style="width: 63px;  font-size: 15px;">$ <%= vehicle.price %>/day</p>
+            <img src=<%= vehicle.user.profile_picture %> class="card-trip-user avatar-bordered" style="width: 50px;" />
           </div>
         </div>
       <% end %>
