@@ -25,22 +25,25 @@
         data-markers="<%= @marker.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
-    <div style="width: 350px;" class="text-center">
-      <h5 class="mb-3" style="font-size: 25px;">Price: $<%= @vehicle.price %>/day</h5>
-      <p class="mb-5" style="font-size: 25px;"><%= @vehicle.description %></p>
-      <% unless policy(@vehicle).destroy? %>
-        <%= simple_form_for [@vehicle, @booking] do |f| %>
-            <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.submit %>
-          <% end %>
-        <% end %> 
-      <% if policy(@vehicle).destroy? %>
-        <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-je je", id:"je" %>
-      <% end %>
-      <% if policy(@vehicle).destroy? %>
-        <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-je", style:"font-size: 18px;", data: { confirm: "Are you sure to destroy this vehicle?"} %>
-      <% end %>
+    <div style="width: 350px; " class="text-center d-flex justify-content-center align-items-center">
+      <div class=" shadow" style="width: 100%; padding: 60px 50px; border-radius: 15px" >
+        <h5 class="mb-3" style="font-size: 25px;">Price: $<%= @vehicle.price %>/day</h5>
+        <p class="mb-5" style="font-size: 25px;"><%= @vehicle.description %></p>
+        <% unless policy(@vehicle).destroy? %>
+          <%= simple_form_for [@vehicle, @booking] do |f| %>
+            <%= f.error_notification %>
+              <%= f.input :date, as: :string, required: true, input_html: {class: "datepicker"} %>
+              <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+              <%= f.submit "Book", class:"btn btn-ghost btn-block mt-3" %>
+            <% end %>
+          <% end %> 
+        <% if policy(@vehicle).destroy? %>
+          <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-je je", id:"je" %>
+        <% end %>
+        <% if policy(@vehicle).destroy? %>
+          <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-je", style:"font-size: 18px;", data: { confirm: "Are you sure to destroy this vehicle?"} %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

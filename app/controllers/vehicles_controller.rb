@@ -6,7 +6,12 @@ def index
   @vehicles = policy_scope(Vehicle)
   if params[:query].present?
     @vehicles = Vehicle.near(params[:query], 10)
-    @vehicles == [] ? @vehicles = Vehicle.all : @vehicles = Vehicle.where(category: params[:category], id: @vehicles.collect(&:id))
+    if @vehicles == []
+      @vehicles = Vehicle.all 
+    else 
+      @vehicles = Vehicle.where(category: params[:category], id: @vehicles.collect(&:id))
+      @vehicles = @vehicles.where(price: (0..params[:price].to_i)) if params[:price].present?
+    end
   end
   @markers = @vehicles.geocoded.map do |vehicle|
     {
