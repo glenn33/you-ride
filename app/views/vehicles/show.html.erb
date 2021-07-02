@@ -1,7 +1,7 @@
 <div class="banner pt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @vehicle.image_url.key, crop: :fill %>');">
   <div class="container d-flex flex-column mb-5">
     <% unless policy(@vehicle).destroy? %>
-      <%= link_to "All vehicles", vehicles_path, class:"btn btn-flat" %>
+      <%= link_to "All vehicles", vehicles_path, class:"btn btn-outline-secondary" %>
     <% else %>
       <%= link_to "Your rentals", rentals_path, class:"btn btn-flat" %>
     <% end %>
@@ -38,10 +38,10 @@
             <% end %>
           <% end %> 
         <% if policy(@vehicle).destroy? %>
-          <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-je je", id:"je" %>
+          <%= link_to 'Edit this vehicle', edit_vehicle_path, class:"btn btn-je je w-100", id:"je" %>
         <% end %>
         <% if policy(@vehicle).destroy? %>
-          <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-je", style:"font-size: 18px;", data: { confirm: "Are you sure to destroy this vehicle?"} %>
+          <%= link_to "Delete this vehicle", vehicle_path(@vehicle), method: :delete, class:"btn btn-je mt-4 w-100", style:"font-size: 18px;", data: { confirm: "Are you sure to destroy this vehicle?"} %>
         <% end %>
       </div>
     </div>
