@@ -1,9 +1,9 @@
 <div class="banner pt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @vehicle.image_url.key, crop: :fill %>');">
   <div class="container d-flex flex-column mb-5">
     <% unless policy(@vehicle).destroy? %>
-      <%= link_to "All vehicles", vehicles_path, class:"btn btn-outline-secondary" %>
+      <%= link_to "All vehicles", vehicles_path, class:"btn btn-light mb-4", style:"width: 150px;" %>
     <% else %>
-      <%= link_to "Your rentals", rentals_path, class:"btn btn-flat" %>
+      <%= link_to "Your rents", vehicles_path, class:"btn btn-light mb-4", style:"width: 150px;" %>
     <% end %>
     <h1 class="mb-5"><strong><%=  @vehicle.category %></strong>!</h1>
     <div>
