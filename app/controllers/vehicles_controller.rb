@@ -46,8 +46,11 @@ end
 
   def update
     authorize @vehicle
-    @vehicle.update(vehicle_params)
-    redirect_to vehicle_path(@vehicle)
+    if @vehicle.update(vehicle_params)
+      redirect_to vehicle_path(@vehicle)
+    else
+      render :edit
+    end
   end
 
   def destroy

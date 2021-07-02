@@ -1,26 +1,28 @@
-<div class="container mt-3">
+<div class="container mt-3"  id="space-full-screen">
  <h1>My bookings</h1>
 
-<% @bookings.each do |booking| %>
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <%= link_to vehicle_path(booking.vehicle) do %>
-            <%= cl_image_tag booking.vehicle.image_url.key, class:"img-fluid rounded-start" %>
-          <% end %>
-        </div>
-        <div class="col-md-8 m-0">
-          <div class="card-body lh-1">
-            <h5 class="card-title"><%= booking.vehicle.category %> in <%= booking.vehicle.location %></h5>
-            <p class="card-text">Owner: <%= booking.vehicle.user.full_name %></p>
-            <p class="card-text mb-0">Price: $ <%= booking.vehicle.price %>/day</p>
-            <p class="card-text mb-0"><small class="text-muted">Pick up: <%= booking.date %></small></p>
-            <div class="d-flex justify-content-between">
-            <p class="card-text mb-0"><small class="text-muted">Return: <%= booking.end_date %></small></p>           
-              <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-je ml-5 justify-content-end" %>
+  <% @bookings.each do |booking| %>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <%= link_to vehicle_path(booking.vehicle) do %>
+              <%= cl_image_tag booking.vehicle.image_url.key, class:"img-fluid rounded-start" %>
+            <% end %>
+          </div>
+          <div class="col-md-8 m-0">
+            <div class="card-body lh-1">
+              <h5 class="card-title"><%= booking.vehicle.category %> in <%= booking.vehicle.location %></h5>
+              <p class="card-text">Owner: <%= booking.vehicle.user.full_name %></p>
+              <p class="card-text mb-0">Price: $ <%= booking.vehicle.price %>/day</p>
+              <p class="card-text mb-0"><small class="text-muted">Pick up: <%= booking.date %></small></p>
+              <div class="d-flex justify-content-between">
+              <p class="card-text mb-0"><small class="text-muted">Return: <%= booking.end_date %></small></p>           
+                <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-je ml-5 justify-content-end" %>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-<% end %>
+  <% end %>
+</div>
