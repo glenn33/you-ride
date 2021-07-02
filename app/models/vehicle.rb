@@ -6,7 +6,7 @@ class Vehicle < ApplicationRecord
 
   validates :location, presence: true
   validates :price, presence: true
-  validates :title, presence: true
-  validates :description, presence: true
+  validates :title, presence: true, length: {minimum: 8}
+  validates :description, presence: true, length: {minimum: 8}
   validates :category, presence: true
 end
