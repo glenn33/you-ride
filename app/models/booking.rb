@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :vehicle
-
+  
   validates :date, presence: true, allow_blank: false
   validates :end_date, presence: true, allow_blank: false
   validate :end_date_after_start_date
@@ -12,4 +12,3 @@ class Booking < ApplicationRecord
     end
   end
 end
-
