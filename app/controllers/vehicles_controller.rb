@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
- before_action :find, only: [:show, :edit, :update, :destroy]
- before_action :authenticate_user!, only: :new
+  before_action :find, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: :new
 
 def index
   @vehicles = policy_scope(Vehicle)
@@ -18,51 +18,51 @@ def index
 end
 
   def show
-   @booking = Booking.new
-   authorize @vehicle
-   @marker = [{lat:@vehicle.geocode[0], lng:@vehicle.geocode[1] }]
+    @booking = Booking.new
+    authorize @vehicle
+    @marker = [{lat:@vehicle.geocode[0], lng:@vehicle.geocode[1] }]
   end
 
   def new
-   @vehicle = Vehicle.new
-   authorize @vehicle
+    @vehicle = Vehicle.new
+    authorize @vehicle
   end
 
   def create
-   @vehicle = Vehicle.new(vehicle_params)
-   authorize @vehicle
-   @vehicle.user = current_user
-   if @vehicle.save
-    redirect_to vehicle_path(@vehicle)
-   else
-    render :new
-   end
+    @vehicle = Vehicle.new(vehicle_params)
+    authorize @vehicle
+    @vehicle.user = current_user
+    if @vehicle.save
+      redirect_to vehicle_path(@vehicle)
+    else
+      render :new
+    end
   end
 
   def update
-   authorize @vehicle
-   @vehicle.update(vehicle_params)
-   redirect_to vehicle_path(@vehicle)
+    authorize @vehicle
+    @vehicle.update(vehicle_params)
+    redirect_to vehicle_path(@vehicle)
   end
 
   def destroy
-   authorize @vehicle
-   @vehicle.destroy
-   redirect_to vehicles_path
+    authorize @vehicle
+    @vehicle.destroy
+    redirect_to vehicles_path
   end
 
   def edit
-   authorize @vehicle
+    authorize @vehicle
   end
 
   private
 
   def find
-   @vehicle = Vehicle.find(params[:id])
+    @vehicle = Vehicle.find(params[:id])
   end
 
   def vehicle_params
-   params.require(:vehicle).permit(:category, :price, :title, :location, :description, :image_url)
+    params.require(:vehicle).permit(:category, :price, :title, :location, :description, :image_url)
   end
 
 end

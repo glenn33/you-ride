@@ -1,17 +1,17 @@
 class BookingsController < ApplicationController
- before_action :authenticate_user!, only: :create
- before_action :skip_authorization, only: [:rentals, :destroy]
+  before_action :authenticate_user!, only: :create
+  before_action :skip_authorization, only: [:rentals, :destroy]
 
- def create
+  def create
     @booking = Booking.new(booking_params)
     authorize @booking
     vehicle = Vehicle.find(params[:vehicle_id])
     @booking.vehicle = vehicle
     @booking.user = current_user
       if @booking.save
-       redirect_to bookings_path
+        redirect_to bookings_path
       else
-       redirect_to vehicle_path(vehicle)
+        redirect_to vehicle_path(vehicle)
       end
   end
 
@@ -27,9 +27,9 @@ class BookingsController < ApplicationController
   end
 
   def rentals
-   @rentals = current_user.vehicles.map do |vehicle|
+    @rentals = current_user.vehicles.map do |vehicle|
     vehicle.bookings
-   end
+    end
   end
 
   private

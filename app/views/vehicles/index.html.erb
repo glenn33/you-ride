@@ -3,8 +3,8 @@
 <h1>All our vehicles</h1>
 <br>
 <div class="container">
- <div class="row">
-   <div class="col-5 pl-0">
+  <div class="row">
+    <div class="col-5 pl-0">
     <% @vehicles.each do |vehicle| %>
       <%= link_to vehicle_path(vehicle) do %>
         <div class="card-trip">
@@ -20,10 +20,10 @@
         </div>
       <% end %>
     <% end %>
- </div>
-   <div id="map" class="map-index col-7 mt-3"
-     style="width: 600vw; height: 100vh;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+    <div id="map" class="map-index col-7 mt-3"
+      style="width: 600vw; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
