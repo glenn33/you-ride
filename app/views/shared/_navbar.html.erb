@@ -1,18 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-     <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center">
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "https://mobike.com/global/public/download__app_icon.png" %>
       <% end %>
-      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <h1 class="display-8">youRide</h1>
-     </div>
+    </div>
 
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-       <ul class="navbar-nav mr-auto">
-       <%= link_to "Post a vehicle!", new_vehicle_path, class:"btn btn-ghost mr-3" %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <%= link_to "Post a vehicle!", new_vehicle_path, class:"btn btn-ghost mr-3" %>
         
         <% if user_signed_in? %>
           <% photo = current_user.profile_picture %>
@@ -24,14 +23,13 @@
               <%= link_to "My account", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
-         <% else %>
+        <% else %>
           <li class="nav-item active">
             <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
           </li>
           </li>
-         
         <% end %>
         
-       </ul>
-     </div>
-   </div>
+      </ul>
+    </div>
+</div>

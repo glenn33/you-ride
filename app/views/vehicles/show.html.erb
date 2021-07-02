@@ -7,11 +7,11 @@
     <% end %>
     <h1 class="mb-5"><strong><%=  @vehicle.category %></strong>!</h1>
     <div>
-     <h3 class="mb-1"><strong><%= @vehicle.title %></strong></h3>
-     <div class="d-flex align-items-center">
+      <h3 class="mb-1"><strong><%= @vehicle.title %></strong></h3>
+      <div class="d-flex align-items-center">
       <img src=<%= @vehicle.user.profile_picture %> class="mb-4 mr-2" style="border-radius: 50%; width: 50px;"/>
       <h4 class="my-5"><%=  @vehicle.user.full_name %></h4>
-     </div>
+      </div>
     </div>
   </div>
   <div>
@@ -26,8 +26,8 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     </div>
     <div style="width: 350px;" class="text-center">
-     <h5 class="mb-3" style="font-size: 25px;">Price: $<%= @vehicle.price %>/day</h5>
-     <p class="mb-5" style="font-size: 25px;"><%= @vehicle.description %></p>
+      <h5 class="mb-3" style="font-size: 25px;">Price: $<%= @vehicle.price %>/day</h5>
+      <p class="mb-5" style="font-size: 25px;"><%= @vehicle.description %></p>
       <% unless policy(@vehicle).destroy? %>
         <%= simple_form_for [@vehicle, @booking] do |f| %>
             <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
@@ -43,6 +43,4 @@
       <% end %>
     </div>
   </div>
- 
-
 </div>
